@@ -482,6 +482,12 @@
                     "fa_icon": "fas fa-save",
                     "help_text": "Turn on saving minimizer information in the kraken2 report thus increasing to an eight column layout.\n\nAdds `--report-minimizer-data` to the kraken2 command."
                 },
+                "kraken2_reports_only_dbs": {
+                    "type": "string",
+                    "fa_icon": "fas fa-filter",
+                    "description": "Comma-separated list of Kraken2 db_names whose read-level output should not be published, keeping only their reports.",
+                    "help_text": "For a database used only for its taxonomic reports, the per-read classification file and the classified/unclassified FASTQs are published but never read, and dominate the size of the results directory. Naming a `db_name` here keeps its `*.report.txt` and drops the rest; the files are still written to the work directory.\n\nDoes not change which files are generated -- `--kraken2_save_reads` and `--kraken2_save_readclassifications` are pipeline-wide. Note that a filter on `.txt` alone would be insufficient, since the per-read classification file is also a `.txt` and is the largest of all."
+                },
                 "run_krakenuniq": {
                     "type": "boolean",
                     "fa_icon": "fas fa-toggle-on",
